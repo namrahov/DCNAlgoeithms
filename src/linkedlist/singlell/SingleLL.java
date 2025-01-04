@@ -54,7 +54,7 @@ public class SingleLL {
         return false; // Node not found
     }
 
-    public Node findNode(int nodeValue){
+    public Node findNode(int nodeValue) {
         Node temp = head;
         while (temp != null) {
             if (temp.value == nodeValue) {
