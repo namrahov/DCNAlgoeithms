@@ -1,9 +1,9 @@
 package linkedlist.singlell;
 
 public class SingleLL {
-    private Node head;
-    private Node tail;
-    private int size;
+    public Node head;
+    public Node tail;
+    public int size;
 
     public Node createSingleLinkedList(int nodeValue) {
         head = new Node(); //Create node with head
