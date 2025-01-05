@@ -16,7 +16,8 @@ public class MainBinaryTree {
         tree.insert(15);
 
 
-       tree.search(tree.root, 15);
+       //tree.search(tree.root, 15);
+       tree.deleteRec(tree.root, 15);
        tree.printTree();
         //  System.out.println(tree);
     }

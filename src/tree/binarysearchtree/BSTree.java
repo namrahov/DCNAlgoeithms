@@ -43,6 +43,43 @@ public class BSTree {
     }
 
 
+    BinaryNode deleteRec(BinaryNode root, int value) {
+        if (root == null) {
+            return null;
+        }
+
+        // Traverse to the node to be deleted
+        if (value < root.value) {
+            root.left = deleteRec(root.left, value);
+        } else if (value > root.value) {
+            root.right = deleteRec(root.right, value);
+        } else {
+            // Node with only one child or no child
+            if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
+
+            // Node with two children: get the inorder successor (smallest in the right subtree)
+            root.value = minValue(root.right);
+
+            // Delete the inorder successor
+            root.right = deleteRec(root.right, root.value);
+        }
+
+        return root;
+    }
+
+    int minValue(BinaryNode root) {
+        int minValue = root.value;
+        while (root.left != null) {
+            minValue = root.left.value;
+            root = root.left;
+        }
+        return minValue;
+    }
+
     // Print method to display the tree-like structure
     public void printTree() {
         printTree(root, 0);
