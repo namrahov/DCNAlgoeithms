@@ -35,6 +35,22 @@ public class BinaryTreeLL {
 
     }
 
+    public void reverseTree(BinaryNode currentNode) {
+        if (currentNode == null) {
+            return; // Base case: nothing to reverse if node is null
+        }
+
+        // 1. Swap children
+        BinaryNode temp = currentNode.left;
+        currentNode.left = currentNode.right;
+        currentNode.right = temp;
+
+        // 2. Recursively reverse left and right subtrees (using the NEW left and right)
+        reverseTree(currentNode.left);
+        reverseTree(currentNode.right);
+
+    }
+
     public List<String> getMaxOfEachLevel() {
         List<String> maxValues = new ArrayList<>();
         if (root == null) {
