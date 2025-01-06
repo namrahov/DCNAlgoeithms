@@ -37,27 +37,27 @@ public class BinaryTreeLL {
 
     public List<String> getMaxOfEachLevel() {
         List<String> maxValues = new ArrayList<>();
-        if(root == null){
+        if (root == null) {
             return maxValues; // Return empty list if tree is empty
         }
 
         Queue<BinaryNode> queue = new LinkedList<>();
         queue.add(root);
 
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int levelSize = queue.size();
             String maxVal = null; // track the largest at this level
 
-            for(int i = 0 ; i < levelSize; i++){
+            for (int i = 0; i < levelSize; i++) {
                 BinaryNode currentNode = queue.poll();
-                if(maxVal == null || currentNode.value.compareTo(maxVal)> 0){
+                if (maxVal == null || currentNode.value.compareTo(maxVal) > 0) {
                     maxVal = currentNode.value; // update largest value at this level
                 }
 
-                if(currentNode.left != null){
+                if (currentNode.left != null) {
                     queue.add(currentNode.left);
                 }
-                if(currentNode.right != null){
+                if (currentNode.right != null) {
                     queue.add(currentNode.right);
                 }
 
