@@ -1,10 +1,10 @@
 package tree.binarysearchtree;
 
 public class BinaryNode {
-    int value;
-    int height;
-    BinaryNode left;
-    BinaryNode right;
+    public int value;
+    public int height;
+    public BinaryNode left;
+    public BinaryNode right;
 
     public BinaryNode(int item) {
         value = item;
