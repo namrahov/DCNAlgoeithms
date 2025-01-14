@@ -21,6 +21,9 @@ public class MainG {
 
         System.out.println("Graph Representation:");
         graph.printGraph();
+
+        // Perform BFS starting from node "A"
+        graph.bfs(nodeList.getFirst());
     }
 
 

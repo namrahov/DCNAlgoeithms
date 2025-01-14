@@ -1,6 +1,9 @@
 package graph;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Graph {
     ArrayList<GraphNode> nodeList = new ArrayList<>();
@@ -24,6 +27,28 @@ public class Graph {
                 System.out.print(neighbor.name + " ");
             }
             System.out.println();
+        }
+    }
+
+    // BFS Algorithm
+    public void bfs(GraphNode startNode) {
+        Queue<GraphNode> queue = new LinkedList<>();
+        HashSet<GraphNode> visited = new HashSet<>();
+
+        queue.add(startNode);
+        visited.add(startNode);
+
+        System.out.println("BFS Traversal:");
+        while (!queue.isEmpty()) {
+            GraphNode currentNode = queue.poll();
+            System.out.print(currentNode.name + " "); // Print the current node
+
+            for (GraphNode neighbor : currentNode.neighbors) {
+                if (!visited.contains(neighbor)) {
+                    queue.add(neighbor);
+                    visited.add(neighbor);
+                }
+            }
         }
     }
 
