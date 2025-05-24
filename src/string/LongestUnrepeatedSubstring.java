@@ -2,7 +2,6 @@ package string;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class LongestUnrepeatedSubstring {
 
@@ -12,23 +11,21 @@ public class LongestUnrepeatedSubstring {
         int r = 0;
 
         Set<Character> set = new HashSet<>();
-        String result = "";
 
+        int res = 0;
         while (r < str.length()) {
             char element = str.charAt(r);
             if (!set.contains(element)) {
                 set.add(element);
+                res = Math.max(res, r - l + 1);
                 r++;
-                if (r - l > result.length()) {
-                    result = str.substring(l, r);
-                }
             } else {
                 set.remove(str.charAt(l));
                 l++;
             }
         }
 
-        System.out.println(result);  // Output: wke
+        System.out.println(res);  // Output: wke
 
     }
 }
