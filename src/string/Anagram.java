@@ -8,24 +8,20 @@ public class Anagram {
         String str1 = "abcd";
         String str2 = "bcda";
 
-        Map<Character, Integer> map1 = new HashMap<>();
-        Map<Character, Integer> map2 = new HashMap<>();
-
-        int maxLength = Math.max(str1.length(), str2.length());
-
-        for (int i = 0; i < maxLength; i++) {
-            if (i < str1.length()) {
-                char c1 = str1.charAt(i);
-                map1.put(c1, map1.getOrDefault(c1, 0) + 1);
-            }
-
-            if (i < str2.length()) {
-                char c2 = str2.charAt(i);
-                map2.put(c2, map2.getOrDefault(c2, 0) + 1);
-            }
+        if (str1.length() != str2.length()) {
+            System.out.println(false);
+            return;
         }
 
-        System.out.println(map1.equals(map2)); // false
+        Map<Character, Integer> countMap = new HashMap<>();
+
+        for (int i = 0; i < str1.length(); i++) {
+            countMap.put(str1.charAt(i), countMap.getOrDefault(str1.charAt(i), 0) + 1);
+            countMap.put(str2.charAt(i), countMap.getOrDefault(str2.charAt(i), 0) - 1);
+        }
+
+        boolean isEqual = countMap.values().stream().allMatch(v -> v == 0);
+        System.out.println(isEqual); // false in this case
     }
 
 }
