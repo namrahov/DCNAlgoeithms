@@ -1,7 +1,9 @@
 package string;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class DisappearedNumber {
     public static void main(String[] args) {
@@ -17,6 +19,9 @@ public class DisappearedNumber {
                 System.out.println(i);
             }
         }
+
+        Set<Integer> set = new HashSet<>();
+        set.contains(1);
 
     }
 }
